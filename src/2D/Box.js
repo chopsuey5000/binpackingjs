@@ -1,5 +1,6 @@
 export default class Box {
 
+  id = null
   width = null
   height = null
   constrainRotation = false
@@ -7,7 +8,8 @@ export default class Box {
   y = 0
   packed = false
 
-  constructor(width, height, constrainRotation = false) {
+  constructor(id = 0, width, height, constrainRotation = false) {
+    this.id = id;
     this.width = width;
     this.height = height;
 
@@ -19,6 +21,10 @@ export default class Box {
     let { width, height } = this;
     this.width = height;
     this.height = width;
+  }
+
+  get id(){
+    return this.id;
   }
 
   get label() {
