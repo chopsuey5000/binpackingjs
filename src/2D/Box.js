@@ -8,7 +8,7 @@ export default class Box {
   y = 0
   packed = false
 
-  constructor(id = 0, width, height, constrainRotation = false) {
+  constructor(id = 0, width, height, constrainRotation = true) {
     this.id = id;
     this.width = width;
     this.height = height;

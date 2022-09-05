@@ -34,13 +34,13 @@ export default class Bin {
 
   insert(box) {
     if (box.packed) return false;
-    
+
     this.heuristic.findPositionForNewNode(box, this.freeRectangles);
     if (!box.packed) return false;
 
     let numRectanglesToProcess = this.freeRectangles.length;
     let i = 0;
-    
+
     while (i < numRectanglesToProcess) {
       if (this.splitFreeNode(this.freeRectangles[i], box)) {
         this.freeRectangles.splice(i, 1);
@@ -50,7 +50,7 @@ export default class Bin {
         i++;
       }
     }
-    
+
     this.pruneFreeList();
     this.boxes.push(box);
 
@@ -70,9 +70,9 @@ export default class Bin {
   splitFreeNode(freeNode, usedNode) {
     // Test with SAT if the rectangles even intersect.
     if (usedNode.x >= freeNode.x + freeNode.width ||
-        usedNode.x + usedNode.width <= freeNode.x ||
-        usedNode.y >= freeNode.y + freeNode.height ||
-        usedNode.y + usedNode.height <= freeNode.y) {
+      usedNode.x + usedNode.width <= freeNode.x ||
+      usedNode.y >= freeNode.y + freeNode.height ||
+      usedNode.y + usedNode.height <= freeNode.y) {
       return false;
     }
 
@@ -91,7 +91,7 @@ export default class Bin {
 
   tryLeaveFreeSpaceAtTop(freeNode, usedNode) {
     if (usedNode.y > freeNode.y && usedNode.y < freeNode.y + freeNode.height) {
-      let newNode = {...freeNode};
+      let newNode = { ...freeNode };
       newNode.height = usedNode.y - newNode.y;
       this.freeRectangles.push(newNode);
     }
@@ -99,7 +99,7 @@ export default class Bin {
 
   tryLeaveFreeSpaceAtBottom(freeNode, usedNode) {
     if (usedNode.y + usedNode.height < freeNode.y + freeNode.height) {
-      let newNode = {...freeNode};
+      let newNode = { ...freeNode };
       newNode.y = usedNode.y + usedNode.height;
       newNode.height = freeNode.y + freeNode.height - (usedNode.y + usedNode.height);
       this.freeRectangles.push(newNode);
@@ -112,10 +112,10 @@ export default class Bin {
       this.tryLeaveFreeSpaceOnRight(freeNode, usedNode);
     }
   }
-  
+
   tryLeaveFreeSpaceOnLeft(freeNode, usedNode) {
     if (usedNode.x > freeNode.x && usedNode.x < freeNode.x + freeNode.width) {
-      let newNode = {...freeNode};
+      let newNode = { ...freeNode };
       newNode.width = usedNode.x - newNode.x;
       this.freeRectangles.push(newNode);
     }
@@ -123,7 +123,7 @@ export default class Bin {
 
   tryLeaveFreeSpaceOnRight(freeNode, usedNode) {
     if (usedNode.x + usedNode.width < freeNode.x + freeNode.width) {
-      let newNode = {...freeNode};
+      let newNode = { ...freeNode };
       newNode.x = usedNode.x + usedNode.width;
       newNode.width = freeNode.x + freeNode.width - (usedNode.x + usedNode.width);
       this.freeRectangles.push(newNode);
@@ -151,8 +151,8 @@ export default class Bin {
         } else {
           j++;
         }
-        i++;
       }
+      i++;
     }
   }
 

@@ -1,4 +1,4 @@
-const isMinify = false;//!!process.env.BUILD_MINIFY;
+const isMinify = true;//!!process.env.BUILD_MINIFY;
 
 module.exports = {
 	context: __dirname + '/src',

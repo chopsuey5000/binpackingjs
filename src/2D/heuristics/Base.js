@@ -31,8 +31,8 @@ export default class Base {
     }
   }
 
-  calculateScore(freeRect, rectWidth, rectHeight) {
+  /*calculateScore(freeRect, rectWidth, rectHeight) {
     throw "NotImplementedError";
-  }
+  }*/
 
 }

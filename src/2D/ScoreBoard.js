@@ -17,7 +17,7 @@ export default class ScoreBoard {
 
   debug() {
     require('console.table');
-    console.table(this.entries.map((entry) => ({ bin: entry.bin.label, box: entry.box.label, score: entry.score })));
+    console.table(this.entries.map((entry) => ({ bin: entry.bin.label, box_id: entry.box.id, box: entry.box.label, packed:entry.box.packed, score: entry.score })));
   }
 
   addBinEntries(bin, boxes) {

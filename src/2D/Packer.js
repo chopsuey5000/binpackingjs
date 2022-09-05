@@ -25,6 +25,7 @@ export default class Packer {
       board.removeBox(entry.box);
       board.recalculateBin(entry.bin);
       packedBoxes.push(entry.box);
+      
       if (packedBoxes.length >= limit) {
         break;
       }
@@ -33,6 +34,8 @@ export default class Packer {
     this.unpackedBoxes = boxes.filter((box) => {
       return !box.packed;
     });
+
+    console.log("packedBoxes: "+JSON.stringify(packedBoxes,null,4));
 
     return packedBoxes;
   }
