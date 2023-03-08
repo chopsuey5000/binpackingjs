@@ -4,17 +4,19 @@ export default class Box {
   width = null
   height = null
   constrainRotation = false
+  color = 'grey'
   x = 0
   y = 0
   packed = false
 
-  constructor(id = 0, width, height, constrainRotation = true) {
+  constructor(id = 0, width, height, constrainRotation = true, color = 'grey') {
     this.id = id;
     this.width = width;
     this.height = height;
 
     // Avoid the packer to try the rotated dimensions
     this.constrainRotation = constrainRotation;
+    this.color = color;
   }
 
   rotate() {
