@@ -84,6 +84,32 @@ console.log(packer.items);
 console.log(packer.unfitItems)
 ```
 
+## TO BUILD
+
+```
+npm i webpack
+```
+
+In webpack.config.js:
+```
+const isMinify = true;
+```
+Then:
+```
+npm run build
+```
+
+In webpack.config.js:
+```
+const isMinify = false;
+```
+Then:
+```
+npm run build
+```
+
+
+
 ## License
 
 MIT
